@@ -1,13 +1,0 @@
-server:
-  port: 8777
-
-logging:  level:    '[com.example.demo]': debug
-
-spring:  application:    name: config-server
-  cloud:    config:      server:
-        encrypt:          enabled: true        git:
-          default-label: main          uri: https://github.com/Limseongyun/msaTest_configs.git
-          search-paths:          - test
-          - community
-          username: ENC(+7CzCHi1oszRDJHFZ41xL5HGe7iGuZxY)
-          password: ENC(R7zofI2YWXCvyc/R4l13+1qzM5IWG8pz1gXtZDhQYCXyH6IPGhbzaH7uNzM2gBMblwtCV/DAzjs=)
