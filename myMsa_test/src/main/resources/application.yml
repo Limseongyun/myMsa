@@ -1,0 +1,6 @@
+server:  port: 8321
+
+spring:
+  profiles:    active: local  application:    name: test
+  config:
+    import: optional:configserver:http://localhost:8777---spring:  application:    name: test  config:    activate:      on-profile: locallogging:  level:    '[com.example.demo]': debugtest:  now: local  test1: test1 local  test2: test2 local${test.now}
