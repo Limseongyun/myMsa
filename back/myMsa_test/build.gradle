@@ -38,7 +38,29 @@ dependencyManagement {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
+sourceSets{
+	main{
+		java{
+			srcDirs = ["src/main/java"]
+		}
+		
+		resources{
+		
+		}
+	}
+}
+
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+//def webappDri = "${}"
+
+
+
+/////////////////////////////////////////////
+def a = "asdf";
+task printHa(){
+	println "A message which is logged at QUIET level ${rootDir} ${a}"
 }
