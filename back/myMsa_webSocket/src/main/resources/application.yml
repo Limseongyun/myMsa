@@ -1,0 +1,39 @@
+server:
+  port: 7300
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: web_socket
+  config:
+    import: optional:configserver:http://localhost:8777
+---
+spring:
+  application:
+    name: web_socket
+  config:
+    activate:
+      on-profile: local
+  thymeleaf:
+    cache: false    prefix: classpath:templates/mvc/
+    suffix: .html
+logging:
+  level:
+    '[com.example.demo]': debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    instance-id: web_socket
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:7123/eureka

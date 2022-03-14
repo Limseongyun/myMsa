@@ -1,0 +1,28 @@
+server:
+  port: 7201
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: test_child1
+  config:
+    import: optional:configserver:http://localhost:8777
+---
+spring:
+  application:
+    name: test_child1
+  config:
+    activate:
+      on-profile: local
+logging:
+  level:
+    '[com.example.demo]': debug
+
+management:  endpoints:    web:      exposure:        include: "*"
+
+eureka:  instance:    instance-id: test_child1
+    hostname: localhost
+  client:    register-with-eureka: true
+    fetch-registry: true
+    service-url:      defaultZone: http://127.0.0.1:7123/eureka
